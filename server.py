@@ -13,7 +13,7 @@ def root():
 
 @app.route("/data.json")
 def newroute():
-  BACKEND_URL = "https://" + str(os.getenv('BACKEND_URL')) + "/getdata"
+  BACKEND_URL = "https://jqp5zmjhf2.us-west-2.awsapprunner.com/getdata"
   logging.info("Getting backend data from " + str(BACKEND_URL))
   leaderboard_data = requests.get(BACKEND_URL)
   logging.debug(leaderboard_data.json())
@@ -21,5 +21,5 @@ def newroute():
   return str(leaderboard_data.json()).replace("\'", "\"")
 
 if __name__ == "__main__":
-  app.run(port=5002)
+  app.run(port=8000)
 
